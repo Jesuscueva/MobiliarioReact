@@ -1,0 +1,671 @@
+.body.overflow{
+    overflow: hidden;
+}
+a{
+    cursor: pointer;
+}
+.section__one{
+    width: 100%;
+    scroll-behavior: smooth;
+    background-color: var(--color-fondo);
+    /* z-index: 500; */
+}
+.container_slider{
+    height: 550px;
+    position: relative;
+}
+.slide_section{
+    height: 100%;
+    /* display: flex; */
+    width: 100%;
+}
+.slider{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* opacity: 0; */
+    display: flex;
+    overflow: hidden;
+    transform: translateX(-1950px);
+}
+.img__carousel{
+    width: calc(100% / 3);
+    height: 100%;
+}
+.img__carousel > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img__carousel.top{
+    transform: translateY(-1025px);
+    transition: 3.5s all;
+}
+.img__carousel.active{
+    transition: 3.5s all;
+    transform: translateY(0);
+}
+.img__carousel.bottom{
+    transform: translateY(1025px);
+    transition: 3.5s all;
+}
+.img__carousel.bottom.active{
+    transition: 3.5s all;
+    transform: translateY(0);
+}
+
+.slider.opacity{
+    transition: 1s all;
+    /* opacity: 1; */
+    transform: translateX(0);
+}
+.slider > img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+.contenedor_btns{
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px;
+}
+.btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.btn:hover{
+    transition: .5s all ease;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.btn > i{
+    font-size: 30px;
+    color: #fff;
+}
+.btn:hover > i{
+    color: var(--color-secondary);
+}
+.text_slider{
+    position: absolute;
+    font-size: 42px;
+    top: 70%;
+    transform: translate(-100%,0);
+    color: #fff;
+    font-family: agressive;
+}
+.text_slider.active{
+    transition: .9s all ease;
+    transform: translate(18%, 0)
+}
+
+/* ESTILOS DE LAS CARDS */
+
+.section__two{
+    width: 100%;
+    background-color: var(--color-fondo);
+    padding-top: 42px;
+    padding-bottom: 24px;
+}
+.section__two_titulo{
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+    transform: scale(0);
+}
+.section__two_titulo.anima{
+    transition: 2s all;
+    transform: scale(1);
+}
+.section__two_titulo > strong{
+    color: var(--color-primary);
+}
+.contenedor__cards{
+    width: 100%;
+    padding: 32px 0px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    transition: .5s all;
+    transform: rotateY(-90deg);
+    width: 270px;
+    max-height: 360px;
+    background-color: #fff;
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+}
+.card.anima{
+    transition: 1.7s all;
+    transform: rotateY(0deg);
+}
+.card__header{
+    width: 100%;
+    height: 150px;
+}
+.card__header > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card__icono{
+    position: absolute;
+    width:  5.5rem;
+    height: 5.5rem;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 95px;
+    left: 33%;
+    box-shadow: 0px 7px 15px -8px var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card__icono > *{
+    font-size: 42px;
+    color: var(--color-primary);
+    transform: scale(0) !important;
+}
+.card__icono.anima > *{
+    transition: 2.5s all;
+    transform: scale(1.1) !important;
+}
+.card__body{
+    margin-top: 45px;
+}
+.card__body > h4{    
+    font-size: 24px;
+    color: var(--color-secondary);
+    width: 100%;
+    text-align: center;
+}
+.card__body > p{
+    text-align: justify;
+    width: 100%;
+    padding: 19px;
+    font-size: 12px;
+    color: rgb(138, 138, 139);
+}
+
+
+/*  ESTILOS SECCIÓN NUMERO 3 - GALERIA */
+
+.section__three{
+    width: 100%;
+    background-color: #fff;
+    padding: 32px 0;
+}
+.section__three_titulo{
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: var(--color-secondary);
+    margin-bottom: 10px;    
+    transform: scale(0);
+}
+.section__three_titulo.anima{
+    transition: 1.5s all;
+    transform: scale(1);
+}
+.section__three_titulo > strong {
+    color: var(--color-primary);
+}
+
+.container__gallery{
+    padding: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery{
+    position: relative;
+    width: 0;
+    background-color: #666666;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 535px;
+    display: flex;
+}
+.gallery.anima{
+    transition: 2s all;
+    width: 80%;
+}
+.gallery__left{
+    flex: 1;
+}
+.gallery__rigth{
+    flex: 1;
+}
+.direction{
+    display: flex;
+    flex-direction: column;
+}
+.figure{
+    flex: 1;
+    height: calc(100% / 2);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+.figure.one{
+    border-right: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+}
+.figure.two{
+    border-left: 4px solid #fff;
+    border-top: 4px solid #fff;
+}
+.figure > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-proyectos{
+    position: absolute;
+    width: 120px;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    border: 2px solid #fff;
+    top: 45%;
+    left: 37%;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: .3s all;
+    text-align: center;
+}
+.btn-proyectos > i{
+    font-size: .9rem;
+    margin-left: 8px;
+}
+.btn-proyectos:hover{
+    transition: .3s all;
+    cursor: pointer;
+    background-color: rgba( 255, 255, 255 , .3)
+;
+}
+.btn__proyectos:hover > i{
+    transition: .8s all;
+    margin-left: 6px;
+    opacity: 1;
+    width: auto;
+}
+
+
+/*  ESTILOS SECTION 4 EVENTOS Y EMPRESA  */
+
+
+.section__four{
+    width: 100%;
+    display: flex;
+    padding: 36px 32px;
+    justify-content: space-evenly;
+    /* padding: 44px 0px; */
+    gap: 16px;
+    background-color: var(--color-fondo);
+}
+.div_article{
+    width: 50%;
+}
+.titulo_noticias{
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: var(--color-secondary);
+    transform: scale(0);
+}
+.titulo_noticias > strong{
+    color: var(--color-primary);
+}
+.contendor__btn_eventos{
+    margin-top: 45px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    width: 100%;
+    border-bottom: 2px solid var(--color-primary);
+}
+.btn__eventos{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    transition: .4s all ease
+}
+.btn__eventos:hover{
+    cursor: pointer;
+    color: #FF9529;
+}
+
+.cards_noticias{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    overflow-y: scroll;
+    height: 350px;
+}
+.cards_noticias::-webkit-scrollbar{
+    display: none;
+}
+.card_noticia{
+    min-height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 2px solid var(--color-primary);
+}
+.card_noticia i{
+    font-size: 40px;
+    color: var(--color-primary);
+}
+.ver_mas{
+    margin: 0;
+    color: var(--color-primary);
+    transition: .8s all ease-in-out;
+    transition: 1s all ;
+}
+.ver_mas:hover{
+    transition: 1s all ;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-primary);
+}
+.description_noticias *{
+    margin: 0;
+}
+.description_noticias{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: center;
+}
+.description_noticias .subtitle_noticia{
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+.description_noticias .parrafo_noticia{
+    font-size: 12px;
+    color: rgb(138, 138, 139);
+}
+
+.info_empresa{
+    width: 500px;
+}
+.title_empresa{
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: var(--color-secondary);
+    transform: scale(0);
+}
+.title_empresa > strong {
+    color: var(--color-primary);
+}
+.container_img{
+    position: relative;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.capa_img{
+    position: relative;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.capa_img img{
+    width: 100%;
+}
+.background_img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba( 255, 255, 255 , .4);
+    width: 100%;
+    height:100%;
+}
+.parrafo_empresa{
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    color: var(--color-secondary);
+}
+
+
+
+/* ESTILOS PARA LA SECCION 5 - CLIENTES */
+
+.section__five{
+    width: 100%;
+    padding: 35px;
+    margin-bottom: 32px;
+}
+.section__five_titulo{
+    width: 100%;
+    font-size: 36px;
+    color: var(--color-secondary);
+    text-align: center;
+}
+.section__five_titulo > strong {
+    color: vaR(--color-primary);
+}
+.contenedor__clientes{
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+.figure__clientes{
+    width: 200px;
+    height: 130px;
+    background-color: #666666;
+    text-align: center;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 1000px) {
+    .section__four{
+        flex-direction: column;
+    }
+    .info_empresa{
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .container_img{
+        height: 400px;
+        width: 500px;
+    }
+}
+@media screen and ( max-width: 768px) {
+    .footer{
+        padding-left: 24px;
+        padding-right: 24px;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 16px;
+    }
+    .footer > *{
+        width: 100%;
+        text-align: center;
+    }
+    .footer_links{
+        gap: 4px;
+    }
+    .link{
+        font-size: 16px;
+    }
+    .footer_rigth{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .footer_rigth > *{
+        flex: 1;
+    }
+    .footer__redes{
+        align-items: center;
+    }
+    .section__five{
+        padding: 35px 0px;
+    }
+    .contenedor__clientes{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .figure.one{
+        border: none;
+    }
+    .container__gallery{
+        /* height: 500px; */
+    }
+    .figure:nth-child(2){
+        display: none;
+    }
+    .btn__proyectos{
+        left: 35%;
+    }
+    .gallery.anima{
+        width: 100%;
+    }
+    .gallery__left{
+        border-right: 2px solid #fff;
+    }
+    .gallery__rigth{
+        border-left: 2px solid #fff;
+    }
+    .section__five{
+        margin-bottom: 0;
+    }
+    .contenedor__clientes{
+        gap: 0;
+    }
+    .figure__clientes{
+        flex: 1;
+        height: 110px;
+    }
+}
+@media screen and (max-width: 540px) {
+    *{
+        transition: .3s all;
+    }
+    .nav__secondary.anima{
+        /* width: 50%; */
+    }
+    .section__four{
+        padding: 0;
+        padding-bottom: 26px;
+    }
+    .titulo_noticias{
+        padding-top: 20px;
+    }
+    .contendor__btn_eventos{
+        margin-top: 25px;
+    }
+    .div-article{
+        padding: 0px 32px;
+    }
+    .container_img{
+        width: 100%;
+    }
+    .capa_img{
+        height: 100%;
+    }
+    .capa_img > img {
+        object-fit: cover;
+        height: 100%;
+    }
+    .info_empresa{
+        gap: 16px;
+    }
+    .card_noticia{
+        flex-direction: column;
+        justify-content: center;
+        min-height: auto;
+        padding: 16px 0;  
+        gap: 12px;
+    }
+    .description_noticias{
+        text-align: center;
+    }
+    .container_img{
+        height: 300px;
+    }
+    .container_slider{
+        height: 500px;
+    }
+    .titulo__{
+        font-size: 26px !important;
+    }
+    .gallery{
+        height: 330px;
+    }
+    .contenedor__cards{
+        padding: 24px 16px;
+    }
+    .card{
+        width: 90%;
+    }
+    .card__body{
+        margin-top: 40px;
+    }
+    .card__icono{
+        left: 38%;
+    }
+    .card__body > p{
+        padding: 11px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .div-article{
+        padding: 0px;
+    }
+    .footer_rigth{
+        flex-direction: column;
+    }
+    .footer__logo:nth-child(1){
+        order: 2;
+    }
+}
