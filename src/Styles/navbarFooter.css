@@ -99,30 +99,31 @@ menu{
 }
 .overly__second{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 1;
     position: absolute;
     background-color: rgba(55, 55, 57, .5);
 }
 .lista__nav_servicios{
-    height: 20px;
+    height: 30px;
     overflow: hidden;
     transition: .6s all;
 }
 .lista__nav_servicios.anima{
-    height: 96px;
+    height: 105px;
     margin-bottom: 16px;
     transition: .6s all;
 }
 
 .navbar__second_lista{
     padding: 32px 0px;
+    border-radius: 7px;
     transition: .8s all;
     position: absolute;
     top: 8px;
     right: 0;
     width: 280px;
-    background-color: #fff;
+    background-color:var(--color-secondary);
     z-index: 3000;
     /* overflow: hidden; */
     height: 100vh;
@@ -136,16 +137,16 @@ menu{
     transition: .6s all;
 }
 .link__nav_proyect.selec{
-    background-color: var(--color-secondary);
+    background-color: #fff;
     color: #fff;
     transition: .6s all;
 }
 .link__nav_service.selec{
-    background-color: var(--color-secondary);
-    color: #fff;
+    background-color: #fff;
+    color: var(--color-secondary);
 }
 .link__nav_service.selec > .icono_top{
-    color: #fff !important;
+    /* color:var(--color-secondary) !important; */
 }
 .link__nav_proyect.selec > .icono_top{
     color: #fff !important;
@@ -153,8 +154,9 @@ menu{
 .link__nav{
     display: flex;
     width: 100%;
+    height: 30px;
     font-size: 17px;
-    color: var(--color-secondary);
+    color: #fff;
     padding-left: 32px;
     align-items: center;
 }
@@ -165,8 +167,8 @@ menu{
     margin-left: 16px;
 }
 .link__nav:hover{
-    color: #fff;
-    background-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: #fff;
 }
 .link__nav:hover > i{
     opacity: 1;
@@ -180,7 +182,7 @@ menu{
         content: "";
         width: 19px;
         height: 19px;
-        background-color:#fff;
+        background-color:var(--color-secondary);
         transform: rotate(45deg);
         position: absolute;
         right: 48px;
@@ -193,7 +195,7 @@ menu{
     color: var(--color-secondary) !important;
 }
 .link__nav:hover > .icono_top{
-    color: #fff !important; 
+    color: var(--color-secondary) !important; 
 } 
 .sub__lista_float{
     margin: 10px 0px;
@@ -214,7 +216,7 @@ menu{
     height: 66px;
 }
 .link__sub_lista_float{
-    color: var(--color-secondary);
+    color: #fff;
     font-size: 15px;
 }
 .link__sub_lista_float > i{
@@ -319,6 +321,9 @@ menu{
 .lista.hover:nth-child(3):hover > .sub__lista > .lista_second{
     opacity: 1;
     transition: 2s all ease-out;
+}
+.lista_second_float{
+    height: 30px;
 }
 
 .lista.hover:nth-child(4):hover{

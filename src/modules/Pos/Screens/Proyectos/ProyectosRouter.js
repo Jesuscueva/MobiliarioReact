@@ -1,9 +1,14 @@
 import React from 'react'
 
+import ProyectosFiltrado from './Components/ProyectosFiltrado'
+import ProyectosImgPresentacion from './Components/ProyectosImgPresentacion'
+
 const ProyectosRouter = () => {
     return (
         <div>
-            Contenedor de todas las vistas Proyectos
+            <ProyectosImgPresentacion />
+            <ProyectosFiltrado />
+            {/* <ProyectosCards /> */}
         </div>
     )
 }

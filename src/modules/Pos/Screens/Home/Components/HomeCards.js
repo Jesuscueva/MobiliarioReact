@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import compremetidos from "../../../../../Assets/saludoCard.jpg"
 import equipo from "../../../../../Assets/equipo.jpg"
 import experiencia from "../../../../../Assets/Experiencia.jpg"
 import calidad from "../../../../../Assets/calidad.jpg"
 
 const HomeCards = () => {
+
+    
+
     return (
         <div>
                 <section className="section__two ">

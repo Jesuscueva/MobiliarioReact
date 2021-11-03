@@ -1,24 +1,78 @@
 import React, { useEffect } from 'react'
+import img1 from "../../../../../Assets/slider__uno.jpg"
+import img2 from "../../../../../Assets/slider__dos.jpg"
 
 const HomeSlider = () => {
-    
-    useEffect(() => {
-        const $imgCarosuel = document.querySelectorAll(".img__carousel")
+
+    const ejecucionSlider = () =>{
+        let $imgCarosuel = document.querySelectorAll(".img__carousel")
         console.log($imgCarosuel)
         $imgCarosuel.forEach( img => {
                     console.log(img)
                     img.classList.add("active")
         })
+    }
+    
+    useEffect(() => {
+        ejecucionSlider()
     })
+    // let $slider     =     document.querySelectorAll(".slider")
+    // let $imgCarosuel = document.querySelectorAll(".img__carousel")
 
     let i = 0
     const btnLeft = () => {
-
+        const $slider    = document.querySelectorAll(".slider")
+        let $imgCarosuel = document.querySelectorAll(".img__carousel")
+        $slider[i].classList.remove("opacity")
+        i -= 1 
+        if(i < 0){
+            i = $slider.length - 1
+        }
+        $slider[i].classList.add("opacity")
+        if(i === 0){
+            setTimeout(() => {
+                $imgCarosuel.forEach( j => {
+                    j.classList.add("active")
+                })
+            },300)
+        }
+        if(i !== 0){
+            $imgCarosuel.forEach(j => {
+                j.classList.remove("active")
+            })
+        }
     }
     const btnRigth = () => {
-        i++
-        
+        const hash = window.location.hash
+        if(hash === "#/"){
+                const $slider    = document.querySelectorAll(".slider")
+                let $imgCarosuel = document.querySelectorAll(".img__carousel")
+                $slider[i].classList.remove("opacity")
+                i++
+                if( i >= $slider.length){
+                    i = 0
+                }
+                $slider[i].classList.add("opacity")
+                if(i === 0){
+                    console.log("3 slides")
+                    setTimeout(() => {
+                        $imgCarosuel.forEach( j => {
+                            j.classList.add("active")
+                        })
+                    },300)
+                }
+                if(i !== 0){
+                    $imgCarosuel.forEach(j => {
+                        j.classList.remove("active")
+                    })
+                }
+        }else{
+            clearInterval(interval)
+            return
+        }
     }
+
+    var interval = setInterval(btnRigth,5000)
 
     return (
         <div>
@@ -37,11 +91,11 @@ const HomeSlider = () => {
                             </div>
                         </div>
                         <div className="slider ">
-                            <img src="./assets/slider__uno.jpg" alt="IMAGEN PRINCIPAL" />
+                            <img src={img1} alt="IMAGEN PRINCIPAL" />
                             <h3 className="text_slider">Text Prueba 2</h3>
                         </div>
                         <div className="slider ">
-                            <img src="./assets/slider__dos.jpg" alt="IMAGEN PRINCIPAL" />
+                            <img src={img2} alt="IMAGEN PRINCIPAL" />
                             <h3 className="text_slider">Text Prueba 3</h3>
                         </div>
                     </div>

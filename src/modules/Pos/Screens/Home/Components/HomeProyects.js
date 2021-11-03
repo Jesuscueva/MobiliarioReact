@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import img1 from "../../../../../Assets/proyecto1.jpg"
 
 const HomeProyects = () => {
+
+    useEffect(() => {
+            const d = document
+            const $sectionThree = d.querySelector(".section__three"),
+                    $efectoThree = d.querySelectorAll(".efecto_three"),
+                    $efectoGallery = d.querySelector(".efecto_gallery"),
+                    sectionThree = $sectionThree.offsetTop
+                    d.addEventListener("scroll", e => {
+                        const menuScroll = d.documentElement.scrollTop
+                        if(sectionThree - 450 < menuScroll){
+                            $efectoGallery.classList.add("anima")
+                            $efectoThree.forEach(efect => {
+                                efect.style.transition = "2s all"
+                                efect.style.transform = "scale(1)"
+                            })
+                        }
+                    })
+                    
+    }, [])
+
     return (
         <div>
                 <section class="section__three">

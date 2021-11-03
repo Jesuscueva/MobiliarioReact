@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import {HashRouter, Route, Switch} from "react-router-dom"
 import Footer from './ComponentsFijos/Footer'
 import Navbar from './ComponentsFijos/Navbar'
@@ -9,10 +9,26 @@ import NosotrosRouter from './Screens/Nosotros/NosotrosRouter'
 import ProyectosRouter from './Screens/Proyectos/ProyectosRouter'
 
 const PosRouter = () => {
+    const [openMenu, setOpenMenu] = useState(true)
+    const openNabv = () => {
+        console.log("ddd")
+        // d.querySelector(".wrapper__navbar_second").classList.toggle("anima")
+        // d.querySelector(".main").classList.toggle("overflow")
+        let toggle = openMenu
+
+        if(toggle){
+            setOpenMenu(false) 
+            document.querySelector(".body").classList.add("overflow")
+        }else{
+            setOpenMenu(true)
+            document.querySelector(".body").classList.remove("overflow")
+        }
+    }
+
     return (
-        <main className="main">
+        <main className={openMenu? "main" : "main overflow"}>
         <HashRouter>
-                <SecondNav />
+                <SecondNav openNabv={openNabv} openMenu={openMenu} />
                 <Navbar />
                 <Switch>
                     {/*
