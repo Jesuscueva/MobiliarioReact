@@ -11,7 +11,8 @@ a{
     /* z-index: 500; */
 }
 .container_slider{
-    height: 550px;
+    /* min-height: 550px; */
+    min-height: calc(100vh - 200px);
     position: relative;
 }
 .slide_section{
@@ -241,6 +242,7 @@ a{
 .gallery.anima{
     transition: 2s all;
     width: 80%;
+    max-width: 1200px;
 }
 .gallery__left{
     flex: 1;
@@ -434,7 +436,7 @@ a{
     justify-content: center;
     align-items: center;
     height: 500px;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
 }
 .capa_img{
@@ -444,7 +446,7 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
 }
 .capa_img img{
@@ -633,7 +635,7 @@ a{
         height: 300px;
     }
     .container_slider{
-        height: 500px;
+        min-height: 500px;
     }
     .titulo__{
         font-size: 26px !important;

@@ -4,36 +4,51 @@ import ProyectosCards from './ProyectosCards'
 const ProyectosFiltrado = () => {
     const [filttro, setFiltro] = useState(0)
     const [active, setActive] = useState(false)
+    // const [activeFiltroSelec, setActveFiltroSelec] = useState(false)
     const reinicio = () =>{
         setTimeout(() =>{
             setActive(true)
         }, 500)
         setActive(false)
     }
-
-    const allCards = () => {
+    const textSelec = (num) =>{
+        const nodeList = document.querySelectorAll(".text_filtrado")
+        const selecFiltro = Array.apply(null, nodeList)
+        selecFiltro.forEach(fil => {
+            fil.classList.remove("active")
+        })
+        const resl = selecFiltro.filter(sle => sle === selecFiltro[num])
+        resl[0].classList.add("active")
+    }
+    
+    const allCards = (e) => {
+        textSelec(0)
         setFiltro(0)
         reinicio()
     } 
 
     const privateCards = () =>{
+        textSelec(1)
         setFiltro(1)
         reinicio()
     }
 
     const publicCards = () =>{
+        textSelec(2)
         setFiltro(2)
         reinicio()
 
     }
 
     const officeCards = () =>{
+        textSelec(3)
         setFiltro(3)
         reinicio()
 
     }
 
     const educativeCards = () =>{
+        textSelec(4)
         setFiltro(4)
         reinicio()
 
@@ -41,6 +56,7 @@ const ProyectosFiltrado = () => {
 
     useEffect(()=>{
             setActive(true)
+            textSelec(filttro)
     },[])
 
     return (

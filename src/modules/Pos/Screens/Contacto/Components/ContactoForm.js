@@ -19,9 +19,7 @@ const ContactoForm = () => {
         })
 
     }
-    const envioForm = e =>{
-        e.preventDefault()
-        // console.log(e.target.value)
+    const confimacionForm = () =>{
         let topMessage = document.documentElement.scrollTop
         const message = document.getElementById("wrapper__message")
             message.style.display = "flex"
@@ -33,6 +31,12 @@ const ContactoForm = () => {
             message.style.transform = "scale(0)"
             setFormulario(formVacio)
         }, 3500)
+    }
+    const envioForm = e =>{
+        e.preventDefault()
+        // console.log(e.target.value)
+        console.log(formulario)
+        confimacionForm()
     }
 
     return (

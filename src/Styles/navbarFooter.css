@@ -269,6 +269,7 @@ menu{
     height: 100%;
     align-items: center;
 }
+
 .lista{
     /* background-color: blueviolet; */
     width: 150px;
@@ -541,7 +542,7 @@ menu{
         content: "";
         width: 15px;
         height: 15px;
-        background-color: #fff;
+        background-color:var(--color-secondary);
         transform: rotate(
         45deg
         );
@@ -551,6 +552,7 @@ menu{
         /* z-index: 20000001; */
     }
     .container_lista{
+        border-radius: 6px;
         padding: 16px 0px;
         position: absolute;
         top: 55px;
@@ -588,25 +590,27 @@ menu{
     .container_lista.anima{
         transition: .6s all;
         transform: translateX(0px);
+        background-color: var(--color-secondary);
         z-index: 201;
         order: 4;
     }
      .lista{
-        max-height: 25px;
+        max-height: 40px;
         border: none;
         width: 100%;
     }
      .lista > a{
-        color: var(--color-secondary);
+        color: #fff;
         font-size: 14px;
         min-width: 100%;
         justify-content: flex-start;
         padding-left: 18px;
     }
      .lista >  a:hover{
-        background-color: var(--color-secondary);
-        color: #fff;
+        background-color: #fff;
+        color: var(--color-secondary);
     }
+    
     .lista > .link_servicios.selec{
         background-color: var(--color-secondary);
         color: #fff;
@@ -646,7 +650,7 @@ menu{
         margin-top: 5px;
     }
     .lista_second > a{
-        color: var(--color-secondary);
+        color: #fff;
         font-size: 13px;
         height: 100%;
         display: flex;

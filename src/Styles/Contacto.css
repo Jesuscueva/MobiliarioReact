@@ -39,6 +39,7 @@
 .contenedor__form_{
     width: 100%;
 }
+
 .title{
     background-color: var(--color-primary);
     max-width: 200px;
@@ -129,6 +130,7 @@ input[type="number"]::-webkit-outer-spin-button{
 .wrapper__map_{
     text-align: center;
     height: 366px;
+    overflow: hidden;
 }
 .wrapper__map_ > iframe{
     width: 600px;
