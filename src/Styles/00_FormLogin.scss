@@ -1,0 +1,95 @@
+@import "./00_CabeceraAdmin.scss";
+$color-base: #F5821F;
+$color-secon: #3A3A3C;
+$color-ter: #747474;
+$color-green: #13A76B;
+$color-transpare: rgba(196, 196, 196, 0.35);
+$color-red: #EA3D3D;
+$colo-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+a{
+    color: #fff;
+}
+li{
+    text-decoration: none;
+}
+
+.menu__form{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: $color-secon;
+    //background-image: url(../Assets/00_FondoLogina.jpg);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container__log_form{
+        width: 670px;
+        height: 350px;
+        //background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .container__log{
+            max-width: 115px;
+            max-height: 100px;
+            //background-color: chartreuse;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .container__form{
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: $color-transpare;
+            form{
+                width: 100%;
+                padding: 32px 6px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .titulo{
+                color: #fff;
+                width: 100%;
+                text-align: center;
+                font-size: 32px;
+            }
+            input{
+                display: block;
+                width: 80%;
+                outline: none;
+                border: #fff 2.5px solid;
+                background-color: transparent;
+                border-radius: 10px;
+                height: 40px;
+                padding: 16px;
+            }
+            input::placeholder{
+                font-size: 16px;
+                color: #fff;
+            }
+            .button__form{
+                outline: none;
+                border: none;
+                background-color: $color-green;
+                width: 175px;
+                padding: 11px;
+                border-radius: 10px;
+                color: #fff;
+                font-size: 22px;
+                transition: .4s all ease-out ;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

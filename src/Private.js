@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Redirect, Route } from 'react-router'
-import LoginMobiliario from './modules/Admin/LoginAdmin/LoginMobiliario'
-// import {LoginMobiliario} from "./modules/Admin/LoginAdmin/LoginMobiliario"
+import AuthContext from './Context/auth/authContext'
 
 const Private = ({path, component: Component}) => {
-    let autenticado = true
-
+    console.log(path, Component);
+    //let autenticado = true
+    const {autentic}  = useContext(AuthContext)
+    console.log(autentic)
     
 
     return (
-                autenticado ? <Route path="/admin/login" component={LoginMobiliario} /> :  <Route path={path} component={Component} /> 
+        autentic ? <Route path={path} component={Component} /> :  <Redirect to="auth/login" /> 
     )
 }
 
