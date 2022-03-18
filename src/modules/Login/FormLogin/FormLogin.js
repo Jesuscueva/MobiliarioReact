@@ -1,13 +1,42 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthContext from '../../../Context/auth/authContext'
 import imgLog from "../../../Assets/01_LogoWebRGB_Mesa de trabajo 1.png"
+import { login } from '../../../services/loginUsuAdmin/loginUsuAdmin'
 
 const FormLogin = (props) => {
-    const {setAuten, autentic} = useContext(AuthContext)
-    const envio = (e) => {
+    const {setAuten, auten} = useContext(AuthContext)
+    let formVacio = {
+        usuario  : "",
+        email    : "",
+        password : ""
+    }
+
+    let [datosUsu, setDatosUsu] = useState(formVacio)
+
+    const handleChange = (e) => {
+        setDatosUsu({
+            ...datosUsu,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    const submit = (e) => {
         e.preventDefault()
-        setAuten(true)
-        props.history.push("/admin/dashboard")
+        // setAuten(true)
+        login(datosUsu).then(
+            data => {
+                console.log(data)
+                if(data.ok){
+                    setDatosUsu(formVacio)
+                    localStorage.setItem("Token", data.content)
+                    console.log("entro")
+                    setAuten(true)
+                    props.history.push("/admin/dashboard")
+                }else{
+                    alert("Ingrese datos Correctamente")
+                }
+            }
+        )
     }
     
     return (
@@ -17,11 +46,11 @@ const FormLogin = (props) => {
                     <img src={imgLog} alt="LogoMobiliario" />
                 </div>
                 <div className="container__form">
-                    <form onSubmit={envio}>
+                    <form onSubmit={submit}>
                         <h2 className="titulo"> Login Mobiliario</h2>
-                        <input type="text" placeholder="Usuario" id="usuario_mobiliario_2022" name="usuario_mobiliario_2022" className='input__form_usuario'/>
-                        <input type="email" placeholder="Correo Electronico" id="correo_mobiliario_2022" className="input__form_correo" name="correo_mobiliario_2022" />
-                        <input type="password" placeholder="Contraseña" id="contraseña_mobiliario_2022" name="contraseña_mobiliario_2022" className='input__form_contrasena'/>
+                        <input type="text" placeholder="Usuario" id="usuario" name="usuario" className='input__form_usuario' value={datosUsu.usuario} onChange={handleChange}/>
+                        <input type="email" placeholder="Correo Electronico" id="email" className="input__form_correo" name="email" value={datosUsu.email}  onChange={handleChange}/>
+                        <input type="password" placeholder="Contraseña" id="password" name="password" className='input__form_contrasena' value={datosUsu.password}  onChange={handleChange}/>
                         <button className="button__form">
                             Ingresar
                         </button>

@@ -13,6 +13,9 @@ const HomeSlider = () => {
         })
     }
     
+    useEffect(() => {
+        ejecucionSlider()
+    })
     // let $slider     =     document.querySelectorAll(".slider")
     // let $imgCarosuel = document.querySelectorAll(".img__carousel")
 
@@ -38,7 +41,6 @@ const HomeSlider = () => {
                 j.classList.remove("active")
             })
         }
-        clearInterval(interval)
     }
     const btnRigth = () => {
         const hash = window.location.hash
@@ -64,16 +66,11 @@ const HomeSlider = () => {
                         j.classList.remove("active")
                     })
                 }
-                // clearInterval(interval)
         }else{
             clearInterval(interval)
             return
         }
     }
-    useEffect(() => {
-        ejecucionSlider()
-        // var interval = setInterval(btnRigth,5000)
-    })
 
     var interval = setInterval(btnRigth,5000)
 
