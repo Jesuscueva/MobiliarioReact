@@ -2,15 +2,16 @@ import React, { useContext, useState } from 'react'
 import AuthContext from '../../../Context/auth/authContext'
 import imgLog from "../../../Assets/01_LogoWebRGB_Mesa de trabajo 1.png"
 import { login } from '../../../services/loginUsuAdmin/loginUsuAdmin'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const FormLogin = (props) => {
-    const {setAuten, auten} = useContext(AuthContext)
+    const {iniciarSesionContext} = useContext(AuthContext)
     let formVacio = {
         usuario  : "",
         email    : "",
         password : ""
     }
-
+    const history = useHistory()
     let [datosUsu, setDatosUsu] = useState(formVacio)
 
     const handleChange = (e) => {
@@ -21,17 +22,12 @@ const FormLogin = (props) => {
     }
 
     const submit = (e) => {
-        e.preventDefault()
-        // setAuten(true)
+        e.preventDefault()  
         login(datosUsu).then(
             data => {
-                console.log(data)
                 if(data.ok){
-                    setDatosUsu(formVacio)
-                    localStorage.setItem("Token", data.content)
-                    console.log("entro")
-                    setAuten(true)
-                    props.history.push("/admin/dashboard")
+                    iniciarSesionContext(data.content)
+                    history.push("/admin/dashboard")
                 }else{
                     alert("Ingrese datos Correctamente")
                 }

@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
-import { BrowserRouter, HashRouter, Redirect, Route, Switch } from 'react-router-dom'
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import CabeceraUsuario from './ComponentsFijos/CabeceraUsuario'
 import Navbar from './ComponentsFijos/Navbar'
 // import VistaCorreoPrincipal from './Screens/Correos/VistaCorreoPrincipal'
@@ -8,10 +7,6 @@ import Dashboard from './Screens/Dashboard/Dashboard'
 // import VistaProyectosPrincipal from './Screens/Proyectos/VistaProyectosPrincipal'
 
 const AdminRouter = () => {
-    const hash  = window.location
-    let history = useHistory()
-
-
 
     return (
         <menu className="menu__administrador">

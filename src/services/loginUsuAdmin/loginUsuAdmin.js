@@ -17,7 +17,7 @@ export const verifyToken = async (token) => {
         method: "POST",
         headers: {
             // "Content-type": "application/json",
-            "Authorizartion": `Bearer ${token}`
+            "Authorization": `Bearer ${token}`,
         }
     })
     const data = await res.json()

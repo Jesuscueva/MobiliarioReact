@@ -9,12 +9,11 @@ import Private from './Private'
 
 const App = () => {
   const hash = window.location
-  console.log(hash)
   return (
     <AuthState>
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/auth" component={LoginRouter}/> */}
+        <Route path="/auth" component={LoginRouter}/>
         <Private path="/admin" component={AdminRouter}/>
         <Route path="/" exact component={PosRouter}/>
         {/* <Redirect to={hash} /> */}
