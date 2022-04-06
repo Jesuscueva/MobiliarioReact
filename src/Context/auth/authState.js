@@ -5,6 +5,7 @@ import AuthContext from './authContext'
 
 const AuthState = ({ children }) => {  
 
+const [cambio, setCambio] = useState(true)
 const [auth, setAuth] = useState({
     autenticado: false,
     usuario: "" ,
@@ -102,6 +103,8 @@ const [auth, setAuth] = useState({
             cerrarSesion: cerrarSesion,
             iniciarSesionContext: iniciarSesionContext,
             sesionOk: auth.sesionOk,
+            cambio: cambio,
+            setCambio:setCambio
         }} >
             {children}
         </AuthContext.Provider>

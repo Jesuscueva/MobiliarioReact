@@ -1,8 +1,16 @@
-import React, {useRef, useState} from 'react'
-import imagenDefecto from "../../../../Assets/img.jpg"
+import React, {useRef, useState, useEffect} from 'react'
+import imagenDefecto from "../../../../Assets/addImage.png"
 
 const PostProyectos = () => {
-
+    const formVacio = {
+        proyectoName : "",
+        proyectoCliente: "",
+        proyectoFecha: "",
+        proyectoImagen: "",
+        cat_id: 0
+    }
+    
+    const [form, setForm] = useState(formVacio)
     const [img, setImage] = useState(imagenDefecto)
     const [file, setFile] = useState(null)
     const refInput = useRef(null)
@@ -35,7 +43,7 @@ const PostProyectos = () => {
     }
 
     const uploadImage = (e) => {
-        const files = e.target.files
+        const files = e.target.value.files
         const file = files[0]
 
         // const valid = isImageValid(file)
@@ -47,28 +55,43 @@ const PostProyectos = () => {
             setFile(null)
         }
     }
+    const change = e => {
+        console.log(e.target.value)
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+    const submit = (e) => {
+            e.preventDefault()
+            console.log(form)
+            setForm(formVacio)
+    }
+
+
 
     return (
-        <div className="wrapper__post_proyectos">  
+        <div className="wrapper__post_proyectos"> 
+            {/* <h2 className="titulo__card">Agregar Proyectos</h2> */}
             <div className="card__form_pos_pro">
-                <form action="" className='formulario__proyectos_admin'>
+                <form onSubmit={submit} action="" className='formulario__proyectos_admin'>
                     <div className="contenedor__subida_img">
                         <div className="wrapper__img" onClick={selectInput} onDrop={dropImage}>
-                            <img src={img} alt="Imagen Proyecto" onChange={uploadImage} />
+                            <img src={img} alt="Imagen Proyecto"  onChange={uploadImage}/>
                         </div>
-                        <input type="file" ref={refInput} className="input-file" />
+                        <input type="file" ref={refInput} className="input-file" onChange={change} name="proyectoImagen" />
                     </div>
                     <div className="wrapper__inputs">
                         <div className="mb-3">
                             <label for="name__" className='form-label'>Nombre del Proyecto</label>
-                            <input type="text" className='form-control' id='name__' />
+                            <input type="text" className='form-control' id='name__' placeholder='Ejem: Instalacion de Muebles' value={form.proyectoName} name="proyectoName" onChange={change}/>
                             <label for="empresa__" className='form-label'>Empresa</label>
-                            <input type="text" className='form-control' id='empresa__' />
+                            <input type="text" className='form-control' id='empresa__'  placeholder='Ejm: Empresa1' name="proyectoCliente" value={form.proyectoCliente} onChange={change}/>
                         </div> 
                         <div className="mb-3">
                             <label for="fecha__" className='form-label'>Fecha</label>
-                            <input type="text" className='form-control' id='fecha__' />
-                            <select name="select" id="">
+                            <input type="text" placeholder='Ejm: 12 de Abril' className='form-control' id='fecha__' value={form.proyectoFecha} onChange={change} name="proyectoFecha" />
+                            <select name="cat_id" id="" onChange={change}>
                                 <option value="0" selected disabled>--Seleccione Categoria--</option>
                                 <option value="3">Educativo</option>
                                 <option value="2">Oficina</option>

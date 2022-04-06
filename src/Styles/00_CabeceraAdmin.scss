@@ -79,9 +79,15 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
             }
         }
     }
+    .container__navbar_dere.open{
+        width: 0px;
+        overflow: hidden;
+    }
     .contenedor__vistas_admin{
         z-index: 997;
         width: calc(100% - 250px);
+        height: 100%;
+        overflow-y: scroll;
         .contenedor__cabecera_usu{
             display: flex;
             align-items: center;
@@ -99,12 +105,17 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
                     width: auto;
                     padding: 10px;
                     display: flex;
-                    gap: 16px;
+                    gap: 4px;
                     align-items: center;
-                    .contenedor__usu{
+                    .contenedor__text{
                         color: #fff;
                     }
+                    .contenedor__usu{
+                        color: #fff;
+                        font-weight: bold;
+                    }
                     .button__close{
+                        margin-left: 16px;
                         background-color: $color-red;
                         height: 32px;
                         width: 87px;
@@ -122,7 +133,7 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
             }
         }
         .contenedor__segunda_part{
-            height:calc(100vh - 144px);
+            // height:calc(100vh - 144px);
             .wrapper__prox_datos{
                 font-size: 35px;
                 font-weight: bold;
@@ -147,17 +158,26 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
                     width: 100%;
                     flex: 1;
                     max-width: 800px;
+                    // height: 400px;
                     .card__form_pos_pro{
                         width: 100%;
                         height: 100%;
+                        padding: 20px;
                         // background-color: #EA3D3D;
                         .formulario__proyectos_admin{
+                            position: relative;
                             width: 100%;
                             height: 100%;
                             // background-color: #747474;
                             .contenedor__subida_img{
-                                height: 250px;
-                                background-color: #F5821F;
+                                // margin-left: 20px;
+                                // margin-top: 20px;
+                                height: 200px;
+                                width: 250px;
+                                border-radius: 0.35rem;
+                                overflow: hidden;
+                                cursor: pointer;
+                                // background-color: #F5821F;
                                 display: flex;
                                 .wrapper__img{
                                     width: 100%;
@@ -169,18 +189,86 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
                                         object-fit: cover;
                                     }
                                 }
+                                .input-file{
+                                    display: none;
+                                }
                             }
                             .wrapper__inputs{
-                                
+                                // background-color: #F5821F;
+                                // height: 100px;
+                                margin-top: 20px;
+                                display: flex;
+                                // width: 100%;
+                                gap: 15px;
+                                .mb-3 {
+                                    flex: 1;
+                                    & > * {
+                                        width: 100%;
+                                        display: block;
+                                    }
+                                    & > label {
+                                        font-size: 17px;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        margin-bottom: 5px;
+                                    }
+                                    & > input{
+                                        outline: none;
+                                        border: none;
+                                        height: 28px;
+                                        border: 1.5px solid rgba(0,0,0,.125);
+                                        border-radius: 0.10rem;
+                                        margin-bottom: 5px;
+                                    }
+                                    & > input:focus{
+                                        border:  1px solid #13A76B !important;
+                                        box-shadow: 0 0 0 0.22rem rgba(19, 167, 107, 0.25);
+                                    }
+                                    & > input::placeholder{
+                                        padding-left: 10    px ;
+                                    }
+                                    & > select{
+                                        margin-top: 29px;
+                                        height: 28px;
+                                        border-color: rgba(0,0,0,.125);
+                                        border-radius: 0.10rem;
+                                    }
+                                    & > select:hover{
+                                        border-color: #888;
+                                    }
+                                    & > select:focus{
+                                        border-radius: 0.10rem;
+                                        box-shadow: 0 0 0 0.22rem rgba(19, 167, 107, 0.25);
+                                    }
+                                }
+                            }
+                            .btn__form_post{
+                                // position: absolute;
+                                // right: 20px;
+                                display: block;
+                                // bottom: 26px;
+                                background-color: #13A76B;
+                                width: 100%;
+                                height: 28px;
+                                margin-top: 10px;
+                                border: none;
+                                outline: none;
+                                border-radius: 2.5px;
+                                color: #fff;
+                                font-size: 15.5px;
+                                padding: 5px;
+                            }
+                            .btn__form_post:hover{
+                                cursor: pointer;
+                                background-color: #16bb79;
                             }
                         }
                     }
-                }
-                .wrapper__get_proyectos{
-                    flex: 1;
                 }
             }
         }
     }
 }
 
+@media screen and (max-width: 854px) {
+
+}
