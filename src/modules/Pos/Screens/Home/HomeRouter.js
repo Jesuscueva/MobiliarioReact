@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react'
 import HomeCards from './Components/HomeCards'
 import HomeInfoEmpresa from './Components/HomeInfoEmpresa'
@@ -10,8 +9,7 @@ const HomeRouter = () => {
         var d = document
         let $sectionTwo = d.querySelector(".section__two"),
             $sectionThree = d.querySelector(".section__three"),
-            $sectionFour = d.querySelector(".section__four"),
-            $sectionOne = d.querySelector(".section__one")
+            $sectionFour = d.querySelector(".section__four")
         
             const $efecto = d.querySelectorAll(".efecto"),
             $efectoThree = d.querySelectorAll(".efecto_three"),
@@ -21,11 +19,9 @@ const HomeRouter = () => {
                 const menuScroll = document.documentElement.scrollTop
                 const sectionTwo = $sectionTwo.offsetTop,
                 sectionThree = $sectionThree.offsetTop,
-                sectionFour = $sectionFour.offsetTop,
-                sectionOne = $sectionOne.offsetTop
+                sectionFour = $sectionFour.offsetTop
 
                 if(sectionTwo - 450  < menuScroll){
-                    console.log("llegue")
                     $efecto.forEach(efec => {
                         efec.classList.add("anima")
                     })

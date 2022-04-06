@@ -6,9 +6,7 @@ const HomeSlider = () => {
 
     const ejecucionSlider = () =>{
         let $imgCarosuel = document.querySelectorAll(".img__carousel")
-        console.log($imgCarosuel)
         $imgCarosuel.forEach( img => {
-                    console.log(img)
                     img.classList.add("active")
         })
     }

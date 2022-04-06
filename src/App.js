@@ -1,14 +1,15 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
 import AuthState from './Context/auth/authState'
 import AdminRouter from './modules/Admin/AdminRouter'
 import LoginRouter from './modules/Login/LoginRouter'
 import PosRouter from './modules/Pos/PosRouter'
 import Private from './Private'
+// import "bootstrap/dist/css/bootstrap.css"
 
 
 const App = () => {
-  const hash = window.location
+  
   return (
     <AuthState>
     <BrowserRouter>

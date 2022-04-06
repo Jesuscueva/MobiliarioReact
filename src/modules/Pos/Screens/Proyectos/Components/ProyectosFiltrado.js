@@ -20,40 +20,31 @@ const ProyectosFiltrado = () => {
         const resl = selecFiltro.filter(sle => sle === selecFiltro[num])
         resl[0].classList.add("active")
     }
-    
     const allCards = (e) => {
         textSelec(0)
         setFiltro(0)
         reinicio()
     } 
-
     const privateCards = () =>{
         textSelec(1)
-        setFiltro(1)
-        reinicio()
-    }
-
-    const publicCards = () =>{
-        textSelec(2)
-        setFiltro(2)
-        reinicio()
-
-    }
-
-    const officeCards = () =>{
-        textSelec(3)
-        setFiltro(3)
-        reinicio()
-
-    }
-
-    const educativeCards = () =>{
-        textSelec(4)
         setFiltro(4)
         reinicio()
-
     }
-
+    const publicCards = () =>{
+        textSelec(2)
+        setFiltro(5)
+        reinicio()
+    }
+    const officeCards = () =>{
+        textSelec(3)
+        setFiltro(2)
+        reinicio()
+    }
+    const educativeCards = () =>{
+        textSelec(4)
+        setFiltro(3)
+        reinicio()
+    }
     useEffect(()=>{
             setActive(true)
             textSelec(filttro)
@@ -72,7 +63,7 @@ const ProyectosFiltrado = () => {
                     <div className="text_filtrado" onClick={educativeCards}>Educativo</div>
                 </div>
             </div>
-            <ProyectosCards filtrado={filttro} active={active} />
+            <ProyectosCards filtrado={filttro} active={active} key={filttro} />
         </>
     )
 }

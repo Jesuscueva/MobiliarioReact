@@ -18,16 +18,16 @@ const SecondNav = ({openNabv, openMenu}) => {
         let toggle = openServicios
         toggle ? setOpenServicios(false) : setOpenServicios(true)
     }
-    const remove = () => {
-        console.log("click link")
-            d.querySelector(".wrapper__navbar_second").classList.remove("anima")
-            d.querySelector(".nav__secondary").classList.remove("anima")
-            d.querySelector(".body").classList.remove("overflow")
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            })
-    }
+    // const remove = () => {
+    //     console.log("click link")
+    //         d.querySelector(".wrapper__navbar_second").classList.remove("anima")
+    //         d.querySelector(".nav__secondary").classList.remove("anima")
+    //         d.querySelector(".body").classList.remove("overflow")
+    //         window.scrollTo({
+    //             top: 0,
+    //             behavior: "smooth"
+    //         })
+    // }
 
     const openNavSecond = e => {         
         const $sectionOne = d.querySelector(".section__primary"),

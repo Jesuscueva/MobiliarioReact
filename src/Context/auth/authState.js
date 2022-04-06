@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 // import { useHistory } from 'react-router-dom'
-import { login, verifyToken } from '../../services/loginUsuAdmin/loginUsuAdmin'
+import {verifyToken } from '../../services/loginUsuAdmin/loginUsuAdmin'
 import AuthContext from './authContext'
 
 const AuthState = ({ children }) => {  
@@ -11,7 +10,7 @@ const [auth, setAuth] = useState({
     usuario: "" ,
     token: null,
     cargando:false,
-    sesionOk: false
+    sesionOk: true,
 })
 
     const iniciarSesionContext = (token) => {
@@ -24,9 +23,9 @@ const [auth, setAuth] = useState({
             usuario: payloadJson.usuarioName,
             token: token,
             cargando: false,
-            sesionOk: true
+            sesionOk: true,
         })
-        console.log("sesion iniciada", auth.sesionOk)
+        console.log("sesion iniciada", auth.sesionOk, auth.autenticado)
     }
 
     const cerrarSesion= (history) => {
@@ -41,7 +40,7 @@ const [auth, setAuth] = useState({
         setTimeout(()=>{
             history.replace("/auth/login");
         }, 500)
-        console.log("sesion cerrada", auth.sesionOk)
+        console.log("sesion cerrada", auth.cargando )
     }
 
     const verificarTokenStorage = () => {
@@ -61,9 +60,9 @@ const [auth, setAuth] = useState({
                         usuario: payloadJson.usuarioName,
                         token: token,
                         cargando: false,
-                        sesionOk: true
+                        sesionOk: true,
                     })
-                    console.log(auth.sesionOk)
+                    console.log("Sesion:",auth.sesionOk, auth.autenticado)        
                 }else{
                     console.log("Sesion caducada")
                     localStorage.removeItem("token")
@@ -84,12 +83,13 @@ const [auth, setAuth] = useState({
                 usuario: "",
                 token: "",
                 cargando: false,
-                sesionOk: false
+                sesionOk: false,
             })
         }
     }
 
     useEffect(()=> {
+        console.log("Recarga")
         verificarTokenStorage()
     },[])
 
@@ -100,9 +100,8 @@ const [auth, setAuth] = useState({
             token: auth.token,
             cargando: auth.cargando,
             cerrarSesion: cerrarSesion,
-            setAuth: setAuth,
             iniciarSesionContext: iniciarSesionContext,
-            sesionOk: auth.sesionOk
+            sesionOk: auth.sesionOk,
         }} >
             {children}
         </AuthContext.Provider>

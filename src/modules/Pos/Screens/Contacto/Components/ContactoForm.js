@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
+import { envioFormMobi } from '../../../../../services/datosMobiliario/conexionBD'
 
 const ContactoForm = () => {
     
     const formVacio = {
-        nombre: "",
-        correo: "",
-        celular: "",
-        empresa: "",
-        asunto: "", 
-        textarea: "",
+        mensaMobiNom: "",
+        mensaMobiMail: "",
+        mensaMobiTel: "",
+        mensaMobiEmpre: "",
+        mensaMobiComentario: "",
     }
     const [formulario, setFormulario] = useState(formVacio)
 
@@ -30,13 +30,21 @@ const ContactoForm = () => {
         setTimeout(() =>{
             message.style.transform = "scale(0)"
             setFormulario(formVacio)
-        }, 3500)
+        }, 2500)
     }
     const envioForm = e =>{
         e.preventDefault()
-        // console.log(e.target.value)
         console.log(formulario)
-        confimacionForm()
+        envioFormMobi(formulario).then(
+            data => {
+                console.log(data)
+                if(data.success){
+                    confimacionForm()
+                }else(
+                    alert("Error al Enviar")
+                )
+            }
+        )
     }
 
     return (
@@ -51,13 +59,13 @@ const ContactoForm = () => {
                         <div className="icon">
                             <i className="fas fa-user"></i>
                         </div>
-                        <input id="nombre" className="input__contac" type="text" placeholder="Nombres y Apellidos" value={formulario.nombre} onChange={handleChange} name="nombre"/>
+                        <input id="mensaMobiNom" className="input__contac" type="text" placeholder="Nombres y Apellidos" value={formulario.mensaMobiNom} onChange={handleChange} name="mensaMobiNom"/>
                     </div>
                     <div className="wrapper_icon_input">
                         <div className="icon">
                             <i className="fas fa-envelope"></i>
                         </div>
-                        <input id="correo" className="input__contac" type="email" placeholder="Correo Electronico" required  value={formulario.correo} onChange={handleChange} name="correo"/>
+                        <input id="mensaMobiMail" className="input__contac" type="email" placeholder="Correo Electronico" required  value={formulario.mensaMobiMail} onChange={handleChange} name="mensaMobiMail"/>
                     </div>
                 </div>
                 
@@ -66,13 +74,13 @@ const ContactoForm = () => {
                         <div className="icon">
                             <i className="fas fa-phone-alt"></i>
                         </div>
-                        <input id="celular" className="input__contac" type="number" value={formulario.celular} placeholder="Número de Celular"  onChange={handleChange} name="celular"/>
+                        <input id="mensaMobiTel" className="input__contac" type="number" value={formulario.mensaMobiTel} placeholder="Número de Celular"  onChange={handleChange} name="mensaMobiTel"/>
                     </div>
                     <div className="wrapper_icon_input">
                         <div className="icon">
                             <i className="fas fa-building"></i>
                         </div>
-                        <input id="empresa" className="input__contac" type="text" placeholder="Empresa"  onChange={handleChange} value={formulario.empresa} name="empresa"/>
+                        <input id="mensaMobiEmpre" className="input__contac" type="text" placeholder="Empresa"  onChange={handleChange} value={formulario.mensaMobiEmpre} name="mensaMobiEmpre"/>
                     </div>
                 </div>
     
@@ -81,7 +89,7 @@ const ContactoForm = () => {
                         <div className="icon">
                             <i className="fas fa-book"></i>
                         </div>
-                        <input id="asunto" className="input__contac" type="text" placeholder="Asunto"  onChange={handleChange} value={formulario.asunto} name="asunto"
+                        <input id="asunto" className="input__contac" type="text" placeholder="Asunto"   name="asunto"
                         />
                     </div>
                     <div className="wrapper_icon_input disabled">
@@ -94,7 +102,7 @@ const ContactoForm = () => {
                         <div className="icon textarea">
                             <i className="fas fa-pencil-alt"></i>
                         </div>
-                        <textarea value={formulario.textarea} name="textarea" id="textarea" cols="30" rows="10" placeholder="Dejanos tu comentario*" required onChange={handleChange}></textarea>
+                        <textarea value={formulario.mensaMobiComentario} name="mensaMobiComentario" id="mensaMobiComentario" cols="30" rows="10" placeholder="Dejanos tu comentario*" required onChange={handleChange}></textarea>
                     </div>
                 </div>
                 <button className="btn__form_contatc" type="submit"><i className="icono_enviar fas fa-paper-plane"></i> &nbsp; Enviar</button>

@@ -7,6 +7,7 @@ import ContactoRouter from './Screens/Contacto/ContactoRouter'
 import HomeRouter from './Screens/Home/HomeRouter'
 import NosotrosRouter from './Screens/Nosotros/NosotrosRouter'
 import ProyectosRouter from './Screens/Proyectos/ProyectosRouter'
+import ServiciosPrincipal from './Screens/Servicios/ServiciosPrincipal'
 
 const PosRouter = () => {
     const [openMenu, setOpenMenu] = useState(true)
@@ -31,11 +32,9 @@ const PosRouter = () => {
                 <SecondNav openNabv={openNabv} openMenu={openMenu} />
                 <Navbar />
                 <Switch>
-                    {/*
-                        <Route path="/servicio/fabricacion" component /> 
-                        <Route path="/servicio/diseno" component /> 
-                        <Route path="/servicio/instalacion" component /> 
-                     */}
+                    
+                        <Route path="/servicio" component={ServiciosPrincipal} /> 
+                    
                     <Route path="/contacto" component={ContactoRouter} /> 
                     <Route path="/proyectos" component={ProyectosRouter} /> 
                     <Route path="/nosotros" component={NosotrosRouter} />

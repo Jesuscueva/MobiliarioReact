@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import compremetidos from "../../../../../Assets/saludoCard.jpg"
 import equipo from "../../../../../Assets/equipo.jpg"
 import experiencia from "../../../../../Assets/Experiencia.jpg"

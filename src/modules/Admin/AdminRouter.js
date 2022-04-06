@@ -4,10 +4,11 @@ import CabeceraUsuario from './ComponentsFijos/CabeceraUsuario'
 import Navbar from './ComponentsFijos/Navbar'
 // import VistaCorreoPrincipal from './Screens/Correos/VistaCorreoPrincipal'
 import Dashboard from './Screens/Dashboard/Dashboard'
+import proyectosRouter from './Screens/Proyectos/proyectosRouter'
 // import VistaProyectosPrincipal from './Screens/Proyectos/VistaProyectosPrincipal'
 
-const AdminRouter = () => {
 
+const AdminRouter = () => {
     return (
         <menu className="menu__administrador">
                 <Navbar />
@@ -17,7 +18,7 @@ const AdminRouter = () => {
                     <Switch>
                         {/*<div>Proximante</div>*/}
                         <Route path="/admin/dashboard" component={Dashboard} /> 
-                        {/* <Route path="/admin/proyectos" component={VistaProyectosPrincipal} />  */}
+                        <Route path="/admin/proyectos" component={proyectosRouter} /> 
                         {/* <Route path="/admin/correos" component={VistaCorreoPrincipal}/>  */}
                         {/* <Route path="/admin/login" component={LoginMobiliario} /> */}
                     </Switch>
