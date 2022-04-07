@@ -9,12 +9,13 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
 .wrapper__get_proyectos{
     margin-top: 20px;
     // background-color: #13A76B;
-    width: 100%;
+    width: 90%;
     // height: 1000px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap:  45px;
+    max-width: 1000px;
     .titulo__contenedor{
         font-size: 32px;
     }

@@ -5,6 +5,7 @@ $color-green: #13A76B;
 $color-transpare: rgba(196, 196, 196, 0.35);
 $color-red: #EA3D3D;
 $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
+
 .menu__administrador{
     //background-color: violet;
     height: 100vh;
@@ -88,6 +89,7 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
         width: calc(100% - 250px);
         height: 100%;
         overflow-y: scroll;
+        padding: 0px 80px 0px 80px;
         .contenedor__cabecera_usu{
             display: flex;
             align-items: center;
@@ -95,11 +97,12 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
             height: 144px;
             .wrapper__contenido{
                 height: 55px;
-                width: 90%;
+                width: 100%;
                 background-color: $color-secon;
                 border-radius: 8px;
                 display: flex;
                 justify-content: end;
+                max-width: 840px;
                 .contenedor__imag{
                     //background-color: yellowgreen;
                     width: auto;
@@ -145,11 +148,11 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
             }
             .contenedor__proyectos{
                 height: 100%;
-                padding: 20px 20px 20px 35px;
+                padding: 20px 80px 20px 80px;
                 // background-color: #13A76B;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 // padding: 20px;
                 gap: 24px;
                 .wrapper__post_proyectos{
@@ -157,7 +160,7 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
                     border-radius: 0.35rem;
                     width: 100%;
                     flex: 1;
-                    max-width: 800px;
+                    max-width: 815px;
                     // height: 400px;
                     .card__form_pos_pro{
                         width: 100%;
@@ -267,7 +270,11 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
             }
         }
     }
+    .contenedor__vistas_admin.max_width{
+        width: 100%;
+    }
 }
+
 
 @media screen and (max-width: 854px) {
 

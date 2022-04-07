@@ -6,11 +6,12 @@ import AuthContext from '../../../Context/auth/authContext'
 const Navbar = () => {
 
     const {setCambio} = useContext(AuthContext)
-    const [openNav, setOpenNav] = useState(true)
+    const [openNav, setOpenNav] = useState(false)
 
     const click_ = () => {
+        let toggle = openNav
         
-        if(openNav){
+        if(toggle){
             /**Navbar cerrado */
             setCambio(true)
             setOpenNav(false)
