@@ -25,7 +25,7 @@ const AdminRouter = () => {
                         {/*<div>Proximante</div>*/}
                         <Route path="/admin/dashboard" component={Dashboard} /> 
                         <Route path="/admin/proyectos" component={proyectosRouter} /> 
-                        <Route path="/admin/correos" component={VistaCorreoPrincipal}/> 
+                        <Route path="/admin/mensajesMobiliario" component={VistaCorreoPrincipal}/> 
                         {/* <Route path="/admin/login" component={LoginMobiliario} /> */}
                     </Switch>
                     </div>

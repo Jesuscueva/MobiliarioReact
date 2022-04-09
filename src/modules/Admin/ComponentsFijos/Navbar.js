@@ -37,17 +37,22 @@ const Navbar = () => {
                         <Link className="link__list" to="/admin/Proyectos">Proyectos</Link> 
                     </li>
                     <li className="list__opt">
-                        <Link className="link__list" to="/admin/Correos">Correos</Link> 
+                        <Link className="link__list" to="/admin/mensajesMobiliario">Mensajes Mobiliario</Link> 
                     </li>
                     <li className="list__opt">
-                        <Link className="link__list" to="/admin/---------">---------</Link> 
+                        <Link className="link__list" to="/admin/mensajesHabitus">Mensajes Habitus</Link> 
                     </li>
                 </ul>
             </div>
-            <div className="button__close_open" onClick={click_}>
-            <i class="fas fa-chevron-left"></i>
-            </div>
         </div>
+        <div className={openNav ? "button__close_open" : "button__close_open left"} onClick={click_}>
+                {
+                    openNav ? 
+                        <i class="fas fa-chevron-left"></i>
+                        :
+                        <i class="fas fa-chevron-right"></i>
+                }
+            </div>
         
         </>
     )

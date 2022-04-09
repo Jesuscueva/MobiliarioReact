@@ -6,14 +6,36 @@ $color-transpare: rgba(196, 196, 196, 0.35);
 $color-red: #EA3D3D;
 $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
 
+
 .menu__administrador{
     //background-color: violet;
     height: 100vh;
     width: 100%;
     display: flex;
     position: relative;
-    
+    .button__close_open{
+        box-shadow: $colo-shadow;
+        padding: 7px;
+        position: absolute;
+        width: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 250px;
+        top: 57px;
+        z-index: 9999;
+        transition: .3s all ease-out;
+        &:hover{
+            cursor: pointer;
+        }
+        //background-color: $color-base;
+    }
+    .button__close_open.left{
+        // background-color: #13A76B;
+        left: 0;
+    }
     .container__navbar_dere{
+        transition: 0.5s all ease;
         z-index: 100000;
         max-width: 250px;
         width: 250px;
@@ -24,23 +46,7 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
         align-items: center;
         padding-top: 32px;
         box-shadow: $colo-shadow;
-        .button__close_open{
-            box-shadow: $colo-shadow;
-            padding: 7px;
-            position: absolute;
-            width: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            left: 250px;
-            top: 57px;
-            z-index: 9999;
-            transition: .3s all ease-out;
-            &:hover{
-                cursor: pointer;
-            }
-            //background-color: $color-base;
-        }
+        
         .cabecera_logo{
             width: 150px;
             height: 72px;
@@ -81,8 +87,10 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
         }
     }
     .container__navbar_dere.open{
-        width: 0px;
+        transition: 0.5s all ease;
+        width: 0%;
         overflow: hidden;
+        opacity: 0;
     }
     .contenedor__vistas_admin{
         z-index: 997;
@@ -102,7 +110,7 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
                 border-radius: 8px;
                 display: flex;
                 justify-content: end;
-                max-width: 840px;
+                max-width: 1100px;
                 .contenedor__imag{
                     //background-color: yellowgreen;
                     width: auto;
@@ -137,6 +145,9 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
         }
         .contenedor__segunda_part{
             // height:calc(100vh - 144px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             .wrapper__prox_datos{
                 font-size: 35px;
                 font-weight: bold;
@@ -276,6 +287,34 @@ $colo-shadow: 4px 0px 5px rgba(0, 0, 0, 0.25);
 }
 
 
-@media screen and (max-width: 854px) {
+@media screen and (max-width: 900px) {
+    *{
+        transition: .5s all ease;
+    }
+    .menu__administrador .contenedor__vistas_admin.max_width {
+        padding: 0px;
+    }
+    .menu__administrador .contenedor__vistas_admin .contenedor__cabecera_usu{
+        padding: 35px;
+    }
+}
 
+@media screen and (max-width: 700px){
+    .menu__administrador .contenedor__vistas_admin .contenedor__segunda_part .contenedor__proyectos {
+        padding: 20px 20px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .menu__administrador .contenedor__vistas_admin .contenedor__segunda_part .contenedor__proyectos .wrapper__post_proyectos .card__form_pos_pro .formulario__proyectos_admin{ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            .wrapper__inputs {
+            width: 100%;
+            flex-direction: column;
+            .mb-3 > select {
+                margin-top: 15px;
+            }
+        }
+    }
 }

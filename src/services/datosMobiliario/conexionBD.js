@@ -18,3 +18,10 @@ export const getProyect = async () => {
     const data = await respon.json()
     return data
 }
+
+
+export const getMensajes = async () => {
+    const respon  = await fetch(`${URL_BACK}mensajesMobiliario`)
+    const data = await respon.json()
+    return data
+}
